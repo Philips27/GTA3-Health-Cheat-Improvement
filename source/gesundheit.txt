@@ -1,0 +1,15 @@
+{$CLEO}
+0000:
+WHILE TRUE
+wait 0
+if and
+    00E0:  player $PLAYER_CHAR driving
+    0ADC: test_cheat "GESUNDHEIT"
+    then
+    03C1: 0@ = player $PLAYER_CHAR car_no_save
+    05E7: 1@ = car 0@ struct
+    0AA6: call_method 0x53C240 struct 1@ num_params 0 pop 0
+    0224: set_car 0@ health_to 1000
+end
+END
+0A93: end_custom_thread    
